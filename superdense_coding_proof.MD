@@ -143,7 +143,7 @@ Measuring the two qubits will always result in the classical result 10
 #### Case 4: $\left| \psi^- \right\rangle$ state
 
 ```math
-\frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}0\\1\\-1\\0\end{bmatrix}=\frac{1}{2}\begin{bmatrix}0\\0\\-2\\0\end{bmatrix}=\begin{bmatrix}0\\0\\-1\\0\end{bmatrix}
+\frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}0\\1\\-1\\0\end{bmatrix}=\frac{1}{2}\begin{bmatrix}0\\0\\0\\-2\end{bmatrix}=\begin{bmatrix}0\\0\\0\\-1\end{bmatrix}
 ```
 
 Here we get a standard basis vector  $\left| 11 \right\rangle$ modified by a global phase factor of -1. Since global phase does not matter, when the two qubits are measured they will always result in two classical bits 11.
