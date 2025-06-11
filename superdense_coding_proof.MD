@@ -98,7 +98,7 @@ CNOT is represented by the following matrix:
 \begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix}
 ```
 
-This can be checked column-by-column. I.e. the first column (corresponding to the $\left|00 \right\rangle$ state) has a 1 in the first entry, which mean means that it transforms that state to itself. The second column (corresponding to the $\left|01 \right\rangle$ state) has a 1 in the third entry, meaning that upon acting on that state it transforms it to $\left|11 \right\rangle$ , which is the correct behaviour considering that the second qubit acts as the control.
+This can be checked column-by-column. I.e. the first column (corresponding to the $\left|00 \right\rangle$ state) has a 1 in the first entry, which mean means that it transforms that state to itself. The second column (corresponding to the $\left|01 \right\rangle$ state) has a 1 in the fourth entry, meaning that upon acting on that state it transforms it to $\left|11 \right\rangle$ , which is the correct behaviour considering that the second qubit acts as the control.
 
 Since the Hadamard gate only acts on the second qubit in this protocol, we need to calculate I tensorred with H:
 
@@ -112,7 +112,7 @@ Therefore the operation that Bob performs on the two qubits he now hold can be r
 \frac{1}{\sqrt{2}}\begin{bmatrix}1&1&0&0\\1&-1&0&0\\0&0&1&1\\0&0&1&-1\end{bmatrix}\begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}
 ```
 
-Let's analyze how it transforms each of the bell states:
+Let's analyze how it transforms each of the Bell states:
 
 #### Case 1: $\left| \phi^+ \right\rangle$ state
 
