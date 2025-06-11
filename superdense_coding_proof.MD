@@ -1,6 +1,6 @@
 ## A case-by-case proof / analysis of the superdense coding protocol
 
-I've been learning about quantum computing using [this great course](learning.quantum.ibm.com/course/basics-of-quantum-information) and during the lesson on entanglement I noticed that the section on superdense coding didn't have as thorough of an analysis as teleportation did. Since I wanted to make sure I understand the protocol correctly, I decided to write down a case-by-case analysis of the protocol here.
+I've been learning about quantum computing using [this great course](https://learning.quantum.ibm.com/course/basics-of-quantum-information) and during the lesson on entanglement I noticed that the section on superdense coding didn't have as thorough of an analysis as teleportation did. Since I wanted to make sure I understand the protocol correctly, I decided to write down a case-by-case analysis of the protocol here.
 
 
 ### Objective of the protocol
