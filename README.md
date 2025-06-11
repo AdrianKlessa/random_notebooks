@@ -1,8 +1,9 @@
-### A collection of small, unrelated jupyter notebooks for playing around with various concepts.
+### A collection of small, unrelated jupyter notebooks and markdown files for playing around with various concepts.
 
 Included notebooks:
 
-* Linear congruences random number generation
-* Exploration of the Lorenz system and other chaos-related concepts
-* Plotting red noise and comparing it to white noise
-* Comparison of symplectic and non-symplectic integrators for physics simulations
+* `congruences_notebook.ipynb` - Linear congruences random number generation
+* `lorenz_system.ipynb` - Exploration of the Lorenz system and other chaos-related concepts
+* `red noise.ipynb` - Plotting red noise and comparing it to white noise
+* `symplectic_integration.ipynb` - Comparison of symplectic and non-symplectic integrators for physics simulations
+* `superdense_coding_proof.MD` - A case-by-case analysis / proof of correctness of the superdense coding quantum protocol
