@@ -32,7 +32,7 @@ An easy way to remember the tensor product of two matrices is that for each entr
 In particular:
 
 ```math
-$I \otimes Z = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}1 & 0 \\0 & -1\end{bmatrix} = \begin{bmatrix}1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&-1\end{bmatrix}$
+I \otimes Z = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}1 & 0 \\0 & -1\end{bmatrix} = \begin{bmatrix}1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&-1\end{bmatrix}
 ```
 
 So we apply the above operation to the following state:
@@ -42,5 +42,46 @@ $\left| \phi^+ \right\rangle=\frac{|00\rangle + |11\rangle}{\sqrt{2}}$
 The state of the two-qubit system changes:
 
 ```math
-$\begin{bmatrix}1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&-1\end{bmatrix} \frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=\frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\-1\end{bmatrix}=\left| \phi^- \right\rangle$
+\begin{bmatrix}1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&-1\end{bmatrix} \frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=\frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\-1\end{bmatrix}=\left| \phi^- \right\rangle
 ```
+
+#### Case 3: c=1 d=0
+
+We only apply X-gate to the second qubit, so let's calculate what I tensorred with X is:
+
+$ I \otimes X = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}0 & 1 \\1 & 0\end{bmatrix} = \begin{bmatrix}0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0\end{bmatrix}$
+
+We apply it to the $\left| \phi^+ \right\rangle$ state:
+
+```math
+\begin{bmatrix}0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0\end{bmatrix} \frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=\frac{1}{\sqrt{2}}\begin{bmatrix}0\\1\\1\\0\end{bmatrix}=\left| \psi^+ \right\rangle
+```
+
+
+#### Case 4: c=1 d=1
+
+We apply Pauli Z, followed by Pauli X to the second qubit. Since applying two gates in a sequence is represented by multiplication of two matrices (remembering that the order of the two matrices is reversed in matrix notation), we can represent this operation (on the second qubit) as a single matrix:
+
+```math
+XZ = \begin{bmatrix}0 & 1 \\1 & 0\end{bmatrix}\begin{bmatrix}1 & 0 \\0 & -1\end{bmatrix}=\begin{bmatrix}0 & -1 \\1 & 0\end{bmatrix}
+```
+
+Since this is only applied on the second qubit, we tensor Pauli-I with the above matrix, resulting in:
+
+```math
+\begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}0 & -1 \\1 & 0\end{bmatrix} = \begin{bmatrix}0&-1&0&0\\1&0&0&0\\0&0&0&-1\\0&0&1&0\end{bmatrix}
+```
+
+Finally, we apply this operation (to the $\left| \phi^+ \right\rangle$ state we always start with):
+
+```math
+\begin{bmatrix}0&-1&0&0\\1&0&0&0\\0&0&0&-1\\0&0&1&0\end{bmatrix} \frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=\frac{1}{\sqrt{2}}\begin{bmatrix}0\\1\\-1\\0\end{bmatrix}=\left| \psi^- \right\rangle
+```
+
+As we can see, by performing operations on her own qubit Alice puts the two entangled qubits in one of the four Bell states. 
+
+Since the Bell states form an orthonormal basis, they are perfectly distinguishable. This means that (after applying the operations analyzed in the next section), Bob can always tell which of the cases above occured. For now, Alice sends the single qubit (her half of the entangled pair) to Bob.
+
+### Decoding
+
+TODO
