@@ -103,10 +103,10 @@ This can be checked column-by-column. I.e. the first column (corresponding to th
 Since the Hadamard gate only acts on the second qubit in this protocol, we need to calculate I tensorred with H:
 
 ```math
-I \otimes H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 1 \\1 & -1\end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix}1&1&0&0\\1&-1&0&0\\0&0&1&1\\0&0&1&-1\end{bmatrix}
+I \otimes H = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 1 \\1 & -1\end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix}1&1&0&0\\1&-1&0&0\\0&0&1&1\\0&0&1&-1\end{bmatrix}
 ```
 
-Therefore the operation that Bob performs on the two qubits he now hold can be represented by the following matrix:
+Therefore the operation that Bob performs on the two qubits he now holds can be represented by the following matrix:
 
 ```math
 \frac{1}{\sqrt{2}}\begin{bmatrix}1&1&0&0\\1&-1&0&0\\0&0&1&1\\0&0&1&-1\end{bmatrix}\begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}
