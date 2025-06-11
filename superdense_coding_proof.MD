@@ -49,7 +49,9 @@ The state of the two-qubit system changes:
 
 We only apply X-gate to the second qubit, so let's calculate what I tensorred with X is:
 
-$ I \otimes X = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}0 & 1 \\1 & 0\end{bmatrix} = \begin{bmatrix}0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0\end{bmatrix}$
+```math
+I \otimes X = \begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}0 & 1 \\1 & 0\end{bmatrix} = \begin{bmatrix}0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0\end{bmatrix}
+```
 
 We apply it to the $\left| \phi^+ \right\rangle$ state:
 
