@@ -86,4 +86,64 @@ Since the Bell states form an orthonormal basis, they are perfectly distinguisha
 
 ### Decoding
 
-TODO
+Bob now performs a CNOT operation (with the qubit that was sent being the control and his part of the entangled pair the target), followed by a Hadamard on the previously-transferred qubit.
+
+What we need to show now is that these two operations correctly transform each of the Bell basis states to the standard basis vectors corresponding to the original values of the classical bits.
+
+Let's first try to represent the two operations (CNOT, Hadamard) with a single matrix.
+
+CNOT is represented by the following matrix:
+
+```math
+\begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix}
+```
+
+This can be checked column-by-column. I.e. the first column (corresponding to the $\left|00 \right\rangle$ state) has a 1 in the first entry, which mean means that it transforms that state to itself. The second column (corresponding to the $\left|01 \right\rangle$ state) has a 1 in the third entry, meaning that upon acting on that state it transforms it to $\left|11 \right\rangle$ , which is the correct behaviour considering that the second qubit acts as the control.
+
+Since the Hadamard gate only acts on the second qubit in this protocol, we need to calculate I tensorred with H:
+
+```math
+I \otimes H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 0 \\0 & 1\end{bmatrix} \otimes \begin{bmatrix}1 & 1 \\1 & -1\end{bmatrix} = \begin{bmatrix}1&1&0&0\\1&-1&0&0\\0&0&1&1\\0&0&1&-1\end{bmatrix}
+```
+
+Therefore the operation that Bob performs on the two qubits he now hold can be represented by the following matrix:
+
+```math
+\begin{bmatrix}1&1&0&0\\1&-1&0&0\\0&0&1&1\\0&0&1&-1\end{bmatrix}\begin{bmatrix}1&0&0&0\\0&0&0&1\\0&0&1&0\\0&1&0&0\end{bmatrix} = \begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}
+```
+
+Let's analyze how it transforms each of the bell states:
+
+#### Case 1: $\left| \phi^+ \right\rangle$ state
+
+```math
+\frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\1\end{bmatrix}=\frac{1}{2}\begin{bmatrix}2\\0\\0\\0\end{bmatrix}=\begin{bmatrix}1\\0\\0\\0\end{bmatrix}
+```
+
+Measuring the two qubits will always result in the classical result 00
+
+#### Case 2: $\left| \phi^- \right\rangle$ state
+
+```math
+\frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}1\\0\\0\\-1\end{bmatrix}=\frac{1}{2}\begin{bmatrix}0\\2\\0\\0\end{bmatrix}=\begin{bmatrix}0\\1\\0\\0\end{bmatrix}
+```
+
+The calculation above is a good example of how relative phase causes some amplitudes in the quantum state vector to get amplified, while others are cancelled out due to the -1 entry.
+
+Measuring the two qubits will always result in the classical result 01
+
+#### Case 3: $\left| \psi^+ \right\rangle$ state
+
+```math
+\frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}0\\1\\1\\0\end{bmatrix}=\frac{1}{2}\begin{bmatrix}0\\0\\2\\0\end{bmatrix}=\begin{bmatrix}0\\0\\1\\0\end{bmatrix}
+```
+
+Measuring the two qubits will always result in the classical result 10
+
+#### Case 4: $\left| \psi^- \right\rangle$ state
+
+```math
+\frac{1}{\sqrt{2}}\begin{bmatrix}1&0&0&1\\1&0&0&-1\\0&1&1&0\\0&-1&1&0\end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}0\\1\\-1\\0\end{bmatrix}=\frac{1}{2}\begin{bmatrix}0\\0\\-2\\0\end{bmatrix}=\begin{bmatrix}0\\0\\-1\\0\end{bmatrix}
+```
+
+Here we get a standard basis vector  $\left| 11 \right\rangle$ modified by a global phase factor of -1. Since global phase does not matter, when the two qubits are measured they will always result in two classical bits 11.
