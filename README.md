@@ -7,3 +7,4 @@ Included notebooks:
 * `red noise.ipynb` - Plotting red noise and comparing it to white noise
 * `symplectic_integration.ipynb` - Comparison of symplectic and non-symplectic integrators for physics simulations
 * `superdense_coding_proof.MD` - A case-by-case analysis / proof of correctness of the superdense coding quantum protocol
+* `network-traffic-classification-attack-detection.ipynb` - Training (and interpreting using SHAP) a LightGBM model on the UNSW_NB15 network traffic dataset
